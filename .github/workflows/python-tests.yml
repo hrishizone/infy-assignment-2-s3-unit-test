@@ -28,7 +28,7 @@ jobs:
     - name: Run tests (with full logs)
       run: |
         echo "Running tests with verbose logging..."
-        pytest -vv -s
+        pytest -vv -s --log-cli-level=INFO
 
     - name: Upload logs (logs.log)
       if: always()   # upload even if tests fail
