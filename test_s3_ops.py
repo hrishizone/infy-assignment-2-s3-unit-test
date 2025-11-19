@@ -3,9 +3,16 @@ import boto3
 import logging
 from s3_ops import Storage_Operations 
 
-logging.basicConfig(filename="logs.log",level=logging.INFO,format="%(asctime)s - %(levelname)s - %(message)s")
-logger = logging.getLogger()
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("logs.log"),
+        logging.StreamHandler()  
+    ]
+)
 
+logger = logging.getLogger()
 
 @mock_aws
 def test_add_s3_objects():

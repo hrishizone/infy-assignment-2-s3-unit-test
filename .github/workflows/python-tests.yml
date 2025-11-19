@@ -25,5 +25,14 @@ jobs:
         pip install -r requirements.txt
         pip install moto boto3 pytest
 
-    - name: Run tests
-      run: pytest -vv
+    - name: Run tests (with full logs)
+      run: |
+        echo "Running tests with verbose logging..."
+        pytest -vv -s
+
+    - name: Upload logs (logs.log)
+      if: always()   # upload even if tests fail
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs
+        path: logs.log
