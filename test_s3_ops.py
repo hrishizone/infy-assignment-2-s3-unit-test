@@ -102,6 +102,3 @@ def test_delete_s3_objects_by_tags():
     logger.info(f"Deleted: {result['Deleted']}")
     assert result['Deleted'] == 2
 
-
-if __name__ == "__main__":
-    test_delete_s3_objects_by_metadata()
