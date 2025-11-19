@@ -29,10 +29,3 @@ jobs:
       run: |
         echo "Running tests with verbose logging..."
         pytest -vv -s --log-cli-level=INFO
-
-    - name: Upload logs (logs.log)
-      if: always()   # upload even if tests fail
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-logs
-        path: logs.log
